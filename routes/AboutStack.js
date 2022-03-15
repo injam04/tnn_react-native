@@ -1,16 +1,16 @@
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import Home from '../screens/Home';
-import ReviewDetails from '../screens/ReviewDetails';
+import About from '../screens/About';
 
 const Stack = createNativeStackNavigator();
 
-const HomeStack = () => {
+const AboutStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName='HomeScreen'
+        initialRouteName='AboutScreen'
         screenOptions={{
           headerStyle: {
             backgroundColor: '#eee',
@@ -23,20 +23,11 @@ const HomeStack = () => {
         }}
       >
         <Stack.Screen
-          name='HomeScreen'
-          component={Home}
+          name='AboutScreen'
+          component={About}
           options={{
             // headerShown: false,
-            title: 'GameZone',
-          }}
-        />
-
-        <Stack.Screen
-          name='ReviewDetails'
-          component={ReviewDetails}
-          options={{
-            // headerShown: true,
-            title: 'Review Details',
+            title: 'About',
           }}
         />
       </Stack.Navigator>
@@ -44,4 +35,4 @@ const HomeStack = () => {
   );
 };
 
-export default HomeStack;
+export default AboutStack;
