@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ImageBackground } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { adjustableSize, getFontFamily } from '../utils/uiHandler/Handlers';
 
 export default function Header({ title, navigation }) {
   const openMenu = () => {
@@ -38,8 +39,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   headerText: {
-    fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: adjustableSize(25),
+    fontFamily: getFontFamily(700),
     color: '#333',
     letterSpacing: 1,
   },

@@ -3,6 +3,7 @@ import React from 'react';
 import { globalStyles, images } from '../utils/styles/GlobalStyle';
 import AppSafeAreaView from '../components/AppSafeAreaView';
 import Card from '../shared/Card';
+import { getFontFamily } from '../utils/uiHandler/Handlers';
 
 const ReviewDetails = ({ navigation, route }) => {
   const { body, key, rating, title } = route.params;
@@ -14,7 +15,9 @@ const ReviewDetails = ({ navigation, route }) => {
           <Text style={globalStyles.titleText}>{title}</Text>
           <Text style={globalStyles.paragraph}>{body}</Text>
           <View style={styles.rating}>
-            <Text>GameZone rating: </Text>
+            <Text style={{ fontFamily: getFontFamily(400) }}>
+              GameZone rating:{' '}
+            </Text>
             <Image source={images.rating[rating]} />
           </View>
         </Card>
