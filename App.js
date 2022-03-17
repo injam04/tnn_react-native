@@ -14,6 +14,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ReviewDetails from './screens/ReviewDetails';
 import { adjustableSize, getFontFamily } from './utils/uiHandler/Handlers';
+import Header from './shared/Header';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,10 +49,9 @@ export default function App() {
         <Stack.Screen
           name='HomeScreen'
           component={Home}
-          options={{
-            // headerShown: false,
-            title: 'GameZone',
-          }}
+          options={({ navigation, route }) => ({
+            headerTitle: (props) => <Header title='GameZone' />,
+          })}
         />
 
         <Stack.Screen

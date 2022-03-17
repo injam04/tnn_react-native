@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import React from 'react';
-import { globalStyles } from '../utils/styles/GlobalStyle';
+import { globalStyles, images } from '../utils/styles/GlobalStyle';
 import AppSafeAreaView from '../components/AppSafeAreaView';
+import Card from '../shared/Card';
 
 const ReviewDetails = ({ navigation, route }) => {
   const { body, key, rating, title } = route.params;
@@ -9,19 +10,14 @@ const ReviewDetails = ({ navigation, route }) => {
   return (
     <>
       <View style={globalStyles.container}>
-        <Text style={globalStyles.titleText}>{title}</Text>
-        <Text style={globalStyles.paragraph}>{body}</Text>
-        <Text style={globalStyles.paragraph}>{rating}</Text>
-        <Button
-          title='Go to Home'
-          onPress={() =>
-            navigation.navigate({
-              name: 'HomeScreen',
-              params: { post: 'postText' },
-              merge: true,
-            })
-          }
-        />
+        <Card>
+          <Text style={globalStyles.titleText}>{title}</Text>
+          <Text style={globalStyles.paragraph}>{body}</Text>
+          <View style={styles.rating}>
+            <Text>GameZone rating: </Text>
+            <Image source={images.rating[rating]} />
+          </View>
+        </Card>
       </View>
     </>
   );
@@ -29,4 +25,13 @@ const ReviewDetails = ({ navigation, route }) => {
 
 export default ReviewDetails;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  rating: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingTop: 16,
+    marginTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: '#eee',
+  },
+});
